@@ -16,14 +16,13 @@
   </div>
 </template>
 
-<script setup>
-// eslint-disable-next-line no-unused-vars
-import { ref, computed } from 'vue';
+<script setup lang="ts">
+import { ref } from 'vue';
 import axios from 'axios';
 
 const board = ref(Array(9).fill(''));
 const currentPlayer = ref('X');
-const status = ref(null);
+const status = ref('');
 const movesCount = ref(0);
 const apiUrl = 'http://localhost:3000/games'; // Thay đổi nếu backend chạy cổng khác
 
@@ -42,7 +41,7 @@ const checkWinner = () => {
   return null;
 };
 
-const makeMove = (index) => {
+const makeMove = (index: number) => {
   if (board.value[index] || status.value) return; // Cell already filled or game over
 
   board.value[index] = currentPlayer.value;
@@ -60,7 +59,7 @@ const makeMove = (index) => {
   }
 };
 
-const saveGameResult = async (winner) => {
+const saveGameResult = async (winner: string ) => {
   try {
     const result = { winner, moves: movesCount.value };
     await axios.post(apiUrl, result);
@@ -73,7 +72,7 @@ const saveGameResult = async (winner) => {
 const resetGame = () => {
   board.value = Array(9).fill('');
   currentPlayer.value = 'X';
-  status.value = null;
+  status.value = '';
   movesCount.value = 0;
 };
 </script>
