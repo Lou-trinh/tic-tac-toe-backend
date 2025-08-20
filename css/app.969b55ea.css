@@ -1,0 +1,1 @@
+#app{font-family:Avenir,Helvetica,Arial,sans-serif;text-align:center;color:#2c3e50;margin-top:60px}.board{display:grid;grid-template-columns:repeat(3,100px);grid-gap:5px;margin:20px auto;width:310px}.cell{width:100px;height:100px;background-color:#eee;display:flex;align-items:center;justify-content:center;font-size:2em;cursor:pointer}
