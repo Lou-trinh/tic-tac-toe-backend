@@ -24,7 +24,7 @@ const board = ref(Array(9).fill(''));
 const currentPlayer = ref('X');
 const status = ref('');
 const movesCount = ref(0);
-const apiUrl = 'http://localhost:3000/games'; // Thay đổi nếu backend chạy cổng khác
+const apiUrl = 'https://tic-tac-toe-backend-production-8fc6.up.railway.app//games'; // Thay đổi nếu backend chạy cổng khác
 
 const checkWinner = () => {
   const winningCombos = [
